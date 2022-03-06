@@ -1,0 +1,108 @@
+
+<div class="bg" [ngStyle]="{'background': getBackgroundColor()}">
+  <section class="view">
+    <header>
+      <div class="overlay">
+    <h1>EmotionSound</h1>
+      <br>
+
+        </div>
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center"> 
+        <webcam [height]="500" [width]="500" [trigger]="triggerObservable" imageType='image/jpeg' mirrorImage='never' (imageCapture)="handleImage($event)"
+          [imageQuality]="0.90"
+          ></webcam>
+      <br/>
+      
+      <button mdbBtn type="button" color="primary" (click)="triggerSnapshot();" mdbWavesEffect>Predict my songs</button>
+          </div>
+      </div>
+    </div>
+  
+   
+    
+
+<div *ngIf="data">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center"> 
+      <h2 style="color:white">Your mood: {{data.data.maxEmotion}}</h2>
+      </div>
+    </div>
+  </div>
+
+        <div class="row">
+          <div class="col-sm-4" *ngFor="let card of data.data.songs">
+            <div class="card" style="margin-left: 10%; margin-bottom: 10%; margin-right: 10%">
+              <img
+                [src]="card.image"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{card.name}}</h5>
+              </div>
+
+              <div class="card-body">
+                <a mdbBtn color="black" [href]="card.spotifyUrl">
+                  <mdb-icon fab icon="spotify" size="2x"></mdb-icon>
+                </a>
+              </div>
+            </div>
+          </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer class="page-footer black darken-3">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-md-12 py-5">
+        <div class="mb-12 text-center">
+
+         
+          <!--Linkedin -->
+          <a href="https://www.linkedin.com/in/marco-bertelli/">
+              <mdb-icon fab icon="linkedin" size="2x" class="white-text mr-3"></mdb-icon>
+          </a>
+
+          <!--Linkedin -->
+          <a href="https://github.com/marco-bertelli">
+            <mdb-icon fab icon="github" size="2x" class="white-text mr-3"></mdb-icon>
+        </a>
+
+         <!--Linkedin -->
+         <a  href="https://github.com/marco-bertelli">
+          <mdb-icon fab icon="stack-overflow" size="2x" class="white-text mr-3"></mdb-icon>
+      </a>
+         
+        </div>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a> Marco Bertelli</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
