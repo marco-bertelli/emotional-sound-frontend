@@ -32,7 +32,7 @@ export class HomeComponent {
   }
 
   public getBackgroundColor() {
-    return 'black';
+    return '#262626';
   }
 
   public get triggerObservable(): Observable<void> {
