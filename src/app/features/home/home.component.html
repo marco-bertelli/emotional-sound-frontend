@@ -1,19 +1,23 @@
 
 <div class="bg" [ngStyle]="{'background': getBackgroundColor()}">
   <section class="view">
-    <header>
-      <div class="overlay">
-    <h1>EmotionSound</h1>
-      <br>
+    <header class="header">
 
-        </div>
+      
+      <div class="text-box">
+        <h1 class="heading-primary">
+          <h1 class="heading-primary-main">Emotion Sound</h1>
+          <h3 class="heading-primary-sub">Find best music based on your mood.</h3>
+          <h3 class="heading-primary-sub">scroll down and take a photo!</h3>
+        </h1>
+      </div>
     </header>
 
 
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center"> 
-        <webcam [height]="500" [width]="500" [trigger]="triggerObservable" imageType='image/jpeg' mirrorImage='never' (imageCapture)="handleImage($event)"
+        <webcam [height]="400" [width]="400" [trigger]="triggerObservable" imageType='image/jpeg' mirrorImage='never' (imageCapture)="handleImage($event)"
           [imageQuality]="0.90"
           ></webcam>
       <br/>
